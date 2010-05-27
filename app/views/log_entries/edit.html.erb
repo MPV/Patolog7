@@ -1,0 +1,44 @@
+<h1>Editing log_entry</h1>
+
+<% form_for(@log_entry) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :event_type %><br />
+    <%= f.text_field :event_type %>
+  </p>
+  <p>
+    <%= f.label :additional_info %><br />
+    <%= f.text_field :additional_info %>
+  </p>
+  <p>
+    <%= f.label :logged_at %><br />
+    <%= f.datetime_select :logged_at %>
+  </p>
+  <p>
+    <%= f.label :signed_by %><br />
+    <%= f.text_field :signed_by %>
+  </p>
+  <p>
+    <%= f.label :referral_type %><br />
+    <%= f.text_field :referral_type %>
+  </p>
+  <p>
+    <%= f.label :referral_id %><br />
+    <%= f.text_field :referral_id %>
+  </p>
+  <p>
+    <%= f.label :referral_year %><br />
+    <%= f.text_field :referral_year %>
+  </p>
+  <p>
+    <%= f.label :import_id %><br />
+    <%= f.text_field :import_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @log_entry %> |
+<%= link_to 'Back', log_entries_path %>

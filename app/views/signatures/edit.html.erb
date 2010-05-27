@@ -1,0 +1,20 @@
+<h1>Editing signature</h1>
+
+<% form_for(@signature) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :log_entry_id %><br />
+    <%= f.text_field :log_entry_id %>
+  </p>
+  <p>
+    <%= f.label :person_id %><br />
+    <%= f.text_field :person_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @signature %> |
+<%= link_to 'Back', signatures_path %>

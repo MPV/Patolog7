@@ -1,0 +1,34 @@
+<h1>Listing log_entries</h1>
+
+<table>
+  <tr>
+    <th>Event type</th>
+    <th>Additional info</th>
+    <th>Logged at</th>
+    <th>Signed by</th>
+    <th>Referral type</th>
+    <th>Referral</th>
+    <th>Referral year</th>
+    <th>Import</th>
+  </tr>
+
+<% @log_entries.each do |log_entry| %>
+  <tr>
+    <td><%=h log_entry.event_type %></td>
+    <td><%=h log_entry.additional_info %></td>
+    <td><%=h log_entry.logged_at %></td>
+    <td><%=h log_entry.signed_by %></td>
+    <td><%=h log_entry.referral_type %></td>
+    <td><%=h log_entry.referral_id %></td>
+    <td><%=h log_entry.referral_year %></td>
+    <td><%=h log_entry.import_id %></td>
+    <td><%= link_to 'Show', log_entry %></td>
+    <td><%= link_to 'Edit', edit_log_entry_path(log_entry) %></td>
+    <td><%= link_to 'Destroy', log_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New log_entry', new_log_entry_path %>

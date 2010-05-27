@@ -1,0 +1,16 @@
+<h1>Editing import</h1>
+
+<% form_for(@import) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :filename %><br />
+    <%= f.text_field :filename %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @import %> |
+<%= link_to 'Back', imports_path %>

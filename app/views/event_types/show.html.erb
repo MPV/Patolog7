@@ -1,0 +1,18 @@
+<p>
+  <b>Code:</b>
+  <%=h @event_type.code %>
+</p>
+
+<p>
+  <b>Short description:</b>
+  <%=h @event_type.short_description %>
+</p>
+
+<p>
+  <b>Long description:</b>
+  <%=h @event_type.long_description %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_type_path(@event_type) %> |
+<%= link_to 'Back', event_types_path %>

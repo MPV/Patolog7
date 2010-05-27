@@ -1,0 +1,13 @@
+<p>
+  <b>Log entry:</b>
+  <%=h @signature.log_entry_id %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%=h @signature.person_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_signature_path(@signature) %> |
+<%= link_to 'Back', signatures_path %>

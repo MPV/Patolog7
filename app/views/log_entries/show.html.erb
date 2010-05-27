@@ -1,0 +1,43 @@
+<p>
+  <b>Event type:</b>
+  <%=h @log_entry.event_type %>
+</p>
+
+<p>
+  <b>Additional info:</b>
+  <%=h @log_entry.additional_info %>
+</p>
+
+<p>
+  <b>Logged at:</b>
+  <%=h @log_entry.logged_at %>
+</p>
+
+<p>
+  <b>Signed by:</b>
+  <%=h @log_entry.signed_by %>
+</p>
+
+<p>
+  <b>Referral type:</b>
+  <%=h @log_entry.referral_type %>
+</p>
+
+<p>
+  <b>Referral:</b>
+  <%=h @log_entry.referral_id %>
+</p>
+
+<p>
+  <b>Referral year:</b>
+  <%=h @log_entry.referral_year %>
+</p>
+
+<p>
+  <b>Import:</b>
+  <%=h @log_entry.import_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_log_entry_path(@log_entry) %> |
+<%= link_to 'Back', log_entries_path %>

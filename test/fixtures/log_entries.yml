@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  event_type: MyString
+  additional_info: MyString
+  logged_at: 2010-05-25 09:40:36
+  signed_by: MyString
+  referral_type: MyString
+  referral_id: 1
+  referral_year: 1
+  import_id: 1
+
+two:
+  event_type: MyString
+  additional_info: MyString
+  logged_at: 2010-05-25 09:40:36
+  signed_by: MyString
+  referral_type: MyString
+  referral_id: 1
+  referral_year: 1
+  import_id: 1
