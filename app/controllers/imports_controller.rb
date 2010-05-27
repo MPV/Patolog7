@@ -7,7 +7,7 @@ class ImportsController < ApplicationController
     @imports = Import.all
 
     respond_to do |format|
-      format.html # index.htmle.erb
+      format.html # index.html.erb
       format.xml  { render :xml => @imports }
     end
   end
@@ -18,7 +18,7 @@ class ImportsController < ApplicationController
     @import = Import.find(params[:id])
 
     respond_to do |format|
-      format.html # show.htmle.erb
+      format.html # show.html.erb
       format.xml  { render :xml => @import }
     end
   end
@@ -29,7 +29,7 @@ class ImportsController < ApplicationController
     @import = Import.new
 
     respond_to do |format|
-      format.html # new.htmle.erb
+      format.html # new.html.erb
       format.xml  { render :xml => @import }
     end
   end
@@ -70,7 +70,7 @@ class ImportsController < ApplicationController
           le.event_type_id = et.id
           le.save
           
-          r = Referrale.find_or_initialize_by_id(le.referral_id)
+          r = Referral.find_or_initialize_by_id(le.referral_id)
           if r.new_record?
             r.referral_year = le.referral_year
             r.referral_type = le.referral_type
@@ -83,7 +83,7 @@ class ImportsController < ApplicationController
             p.save
           end
           
-          s = Signature.find(:conditions => { :log_entry_id => le.id, :person_id => p.id })
+          s = Signature.find(:first, :conditions => { :log_entry_id => le.id, :person_id => p.id })
           if s.nil?
             s = Signature.new
             s.log_entry_id = le.id
@@ -95,7 +95,7 @@ class ImportsController < ApplicationController
         GC.start if n % 50 == 0 # Start Garbage Collection to preserve memory
       end
       #logger.info("---Finished importing.")
-      flash.now[:notice] = "CSV import successfule. #{n} new log entries added."
+      flash.now[:notice] = "CSV import successful. #{n} new log entries added."
     end
     
     respond_to do |format|

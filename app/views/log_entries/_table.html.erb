@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Händelse:</th>
+    <th>Tidpunkt:</th>
+  </tr>
+  <% log_entries.each do |log_entry| %>
+  <tr>
+    <td><%= link_to h(log_entry.event_type.code), log_entry %></td>
+    <td><%= l log_entry.logged_at, :format => :short %></td>
+  </tr>
+  <% end %>
+</table>

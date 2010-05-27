@@ -2,16 +2,16 @@
 
 <table>
   <tr>
-    <th>Code</th>
-    <th>Short description</th>
-    <th>Long description</th>
+    <th>Code:</th>
+    <th>Short description:</th>
+    <th>Log entries with this type:</th>
   </tr>
 
 <% @event_types.each do |event_type| %>
   <tr>
     <td><%=h event_type.code %></td>
     <td><%=h event_type.short_description %></td>
-    <td><%=h event_type.long_description %></td>
+    <td><%= event_type.log_entries.count.to_i %></td>
     <td><%= link_to 'Show', event_type %></td>
     <td><%= link_to 'Edit', edit_event_type_path(event_type) %></td>
     <td><%= link_to 'Destroy', event_type, :confirm => 'Are you sure?', :method => :delete %></td>

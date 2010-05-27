@@ -1,3 +1,13 @@
+<h1>Remiss <%= @referral.id %></h1>
 
-<%= link_to 'Edit', edit_referral_path(@referral) %> |
-<%= link_to 'Back', referrals_path %>
+<h2>Loggat på denna remiss:</h2>
+<% if @referral.log_entries.empty? %>
+  <p>No log entries yet.</p>
+<% else %>
+  <%= render :partial => 'log_entries/table', :locals => { :log_entries => @referral.log_entries } %>
+  </ul>
+<% end %>
+
+<p>
+  <%= link_to 'Ändra', edit_referral_path(@referral) %>
+</p>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Grupp 7-grej</title>
+  <%= stylesheet_link_tag 'style' %>
+</head>
+<body>
+
+<div id="wrapper">
+
+<h2 id="site_title"><%= link_to 'Grupp 7 demo', root_path %></h2>
+
+<div id="menu">
+
+<%= link_to 'Remisser', referrals_path %>
+<%= link_to 'Loggrader', log_entries_path %>
+<%= link_to 'Händelsetyper', event_types_path %>
+<%= link_to 'Ny import', new_import_path %>
+
+</div>
+
+<div id="page">
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield %>
+
+</div>
+
+</div>
+
+</body>
+</html>

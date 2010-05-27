@@ -1,11 +1,17 @@
-<h1>Listing referrals</h1>
+<h1>Alla remisser</h1>
 
 <table>
   <tr>
+    <th>Remissnummer</th>
+    <th>År</th>
+    <th>Typ</th>
   </tr>
 
 <% @referrals.each do |referral| %>
   <tr>
+    <td><%= referral.id %></td>
+    <td><%= referral.referral_year %></td>
+    <td><%= referral.referral_type %></td>
     <td><%= link_to 'Show', referral %></td>
     <td><%= link_to 'Edit', edit_referral_path(referral) %></td>
     <td><%= link_to 'Destroy', referral, :confirm => 'Are you sure?', :method => :delete %></td>
