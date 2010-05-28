@@ -18,6 +18,7 @@ class ReferralsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @referral }
+      format.json { render :json => @referral }
     end
   end
 
