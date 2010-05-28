@@ -12,9 +12,9 @@
     <td><%=h event_type.code %></td>
     <td><%=h event_type.short_description %></td>
     <td><%= event_type.log_entries.count.to_i %></td>
-    <td><%= link_to 'Show', event_type %></td>
-    <td><%= link_to 'Edit', edit_event_type_path(event_type) %></td>
-    <td><%= link_to 'Destroy', event_type, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Visa', event_type %></td>
+    <td><%= link_to 'Ändra', edit_event_type_path(event_type) %></td>
+    <td><%= link_to 'Ta bort', event_type, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
