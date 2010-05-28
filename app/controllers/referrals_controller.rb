@@ -15,7 +15,9 @@ class ReferralsController < ApplicationController
   # GET /referrals/1.xml
   def show
     @referral = Referral.find(params[:id])
-
+    @arrival = @referral.log_entry_with_code('Ankomsttidpunkt')
+    @lab_out = @referral.log_entry_with_code('Lab ut')
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @referral }

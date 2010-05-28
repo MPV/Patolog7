@@ -12,5 +12,11 @@ class Referral < ActiveRecord::Base
   def last_log_entry
     LogEntry.find(:first, :conditions => { :referral_id => id }, :order => "logged_at DESC")
   end
+  
+  def log_entry_with_code(code)
+    conditions = ["log_entries.referral_id = ? AND event_types.code = ?", id, code]
+    order = "logged_at ASC"
+    LogEntry.find(:first, :conditions => conditions, :include => 'event_type', :order => order)
+  end
 
 end

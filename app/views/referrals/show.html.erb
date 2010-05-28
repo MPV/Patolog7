@@ -1,21 +1,29 @@
 <h1>Remiss <%= @referral.id %></h1>
 
 <p>
-Första loggningstillfälle:
-<%= @referral.first_log_entry.event_type.code %>,
-<%= l @referral.first_log_entry.logged_at, :format => :short %>
-</p>
-
-<p>
-Sista loggningstillfälle:
-<%= @referral.last_log_entry.event_type.code %>,
-<%= l @referral.last_log_entry.logged_at, :format => :short %>
-</p>
-
-<p>
+  Första loggningstillfälle:
+  <%= @referral.first_log_entry.event_type.code %>,
+  <%= l @referral.first_log_entry.logged_at, :format => :short %>
+  <br />
+  Sista loggningstillfälle:
+  <%= @referral.last_log_entry.event_type.code %>,
+  <%= l @referral.last_log_entry.logged_at, :format => :short %>
+  <br />
   Tid däremellan:
   <%= distance_of_time_in_words @referral.first_log_entry.logged_at, @referral.last_log_entry.logged_at %>
   (<%= @referral.days_from_first_to_last_log_entry %> dagar).
+</p>
+
+<p>
+  Ankomst: 
+  <%= l @arrival.logged_at, :format => :short %>
+  <br />
+  Lab ut: 
+  <%= l @lab_out.logged_at, :format => :short %>
+  <br />
+  Tid däremellan:
+  <%= distance_of_time_in_words @lab_out.logged_at, @arrival.logged_at %>
+  (<%= (@lab_out.logged_at.to_date - @arrival.logged_at.to_date).to_i %> dagar).
 </p>
 
 <h2>Loggat på denna remiss:</h2>
