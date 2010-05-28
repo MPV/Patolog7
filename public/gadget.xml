@@ -3,7 +3,13 @@
   <ModulePrefs title="hello world example" /> 
   <Content type="html">
      <![CDATA[ 
-       Hello, world 2!
+       <div id="output" onLoad="getData();">Hello, world 2!</div>
+       <script type="javascript">
+         function getData(){
+           output = document.getElementByID('output');
+           output.innerHTML = 'new data';
+         }
+       </script>
      ]]>
   </Content> 
 </Module>
