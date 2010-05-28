@@ -7,6 +7,7 @@ class SignaturesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @signatures }
+      format.json { render :json => @signatures }
     end
   end
 
@@ -18,6 +19,7 @@ class SignaturesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @signature }
+      format.json { render :json => @signature }
     end
   end
 

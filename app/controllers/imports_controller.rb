@@ -9,6 +9,7 @@ class ImportsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @imports }
+      format.json { render :json => @imports }
     end
   end
 
@@ -20,6 +21,7 @@ class ImportsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @import }
+      format.json { render :json => @import }
     end
   end
 

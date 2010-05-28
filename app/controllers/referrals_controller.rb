@@ -7,6 +7,7 @@ class ReferralsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @referrals }
+      format.json { render :json => @referrals }
     end
   end
 
@@ -30,6 +31,7 @@ class ReferralsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @referral }
+      format.json { render :json => @referral }
     end
   end
 

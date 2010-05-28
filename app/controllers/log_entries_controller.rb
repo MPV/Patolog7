@@ -7,6 +7,7 @@ class LogEntriesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @log_entries }
+      format.json { render :json => @log_entries }
     end
   end
 
@@ -18,6 +19,7 @@ class LogEntriesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @log_entry }
+      format.json { render :json => @log_entry }
     end
   end
 
@@ -29,6 +31,7 @@ class LogEntriesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @log_entry }
+      format.json { render :json => @log_entry }
     end
   end
 
