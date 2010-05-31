@@ -3,7 +3,7 @@ class EventType < ActiveRecord::Base
   has_many :referrals, :through => :log_entries
   #acts_as_list 
   
-  def amount_referrals_completed_previous_but_not_current_step
+  def referrals_unfinished
     if position.blank?
       return 0
     else

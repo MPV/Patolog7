@@ -1,17 +1,17 @@
 <h1><%=h @event_type.short_description %></h1>
 
 <p>
-  <b>Code:</b>
+  <b>Databaskod:</b>
   <%=h @event_type.code %>
 </p>
 
 <p>
-  <b>Short description:</b>
+  <b>Kort beskrivning:</b>
   <%=h @event_type.short_description %>
 </p>
 
 <p>
-  <b>Long description:</b>
+  <b>Lång beskrivning:</b>
   <%=h @event_type.long_description %>
 </p>
 
@@ -26,9 +26,9 @@
 </p>
 
 <p>
-  <b>Remisser på detta steg (men ej klara ännu):</b>
-  <%= @event_type.amount_referrals_completed_previous_but_not_current_step.to_i %>
+  <b>Remisser redo för detta steg (men ej klara ännu):</b>
+  <%= @event_type.referrals_unfinished.to_i %>
 </p>
 
-<%= link_to 'Edit', edit_event_type_path(@event_type) %> |
-<%= link_to 'Back', event_types_path %>
+<%= link_to 'Ändra', edit_event_type_path(@event_type) %> |
+<%= link_to 'Tillbaka', event_types_path %>
