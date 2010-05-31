@@ -30,58 +30,5 @@
   <%= @event_type.amount_referrals_completed_previous_but_not_current_step.to_i %>
 </p>
 
-<% unless @event_type.position.blank? %>
-
-<p>
-  <% previous_event_types = EventType.find(:all, :conditions => { :position => @event_type.position - 1 }) %>
-  <b>Föregående steg:</b>
-  <% if previous_event_types.empty? %>
-    Inget föregående steg.
-  <% else %>
-    <ul>
-    <% previous_event_types.each do |previous_event_type| %>
-      <li><%= previous_event_type.code %></li>
-      
-      Remisser som gjort <%= previous_event_type.code %> men inte <%= @event_type.code %>:
-      <%
-      
-      c = Referral.find(
-        :all, 
-        :include => :log_entries,
-        :conditions => ["log_entries.event_type_id = ?", previous_event_type.id]
-      )
-        
-      d = Referral.find(
-        :all, 
-        :include => :log_entries,
-        :conditions => ["log_entries.event_type_id = ?", @event_type.id]
-      )
-      
-      e = c - d
-      
-      %>
-      (<%= e.length.to_i %>)
-      <ul>
-        <% e.each do |ref| %>
-          <li><%= link_to ref.id, ref %></li>
-        <% end %>
-      </ul>
-      
-    <% end %>
-    </ul>
-    
-    <%
-
-    %>
-    
-  <% end %>
-</p>
-
-<p>
-  
-</p>
-
-<% end %>
-
 <%= link_to 'Edit', edit_event_type_path(@event_type) %> |
 <%= link_to 'Back', event_types_path %>
