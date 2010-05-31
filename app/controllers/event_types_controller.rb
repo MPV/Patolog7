@@ -3,7 +3,7 @@ class EventTypesController < ApplicationController
   # GET /event_types.xml
   def index
     @event_types = EventType.all(:order => :position)
-    @sorted_event_types = EventType.all(:conditions => "position NOT NULL", :order => :position)
+    @sorted_event_types = EventType.all(:conditions => "position IS NOT NULL", :order => :position)
 
     respond_to do |format|
       format.html # index.html.erb
