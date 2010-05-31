@@ -2,7 +2,8 @@ class EventTypesController < ApplicationController
   # GET /event_types
   # GET /event_types.xml
   def index
-    @event_types = EventType.all
+    @event_types = EventType.all(:order => :position)
+    @sorted_event_types = EventType.all(:conditions => "position NOT NULL", :order => :position)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,6 +83,14 @@ class EventTypesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(event_types_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def sort
+    @event_types = EventType.all
+    @event_types.each do |event_type|
+      event_type.position = params["event_types"].index(event_type.id.to_s)+1
+      event_type.save
     end
   end
 end

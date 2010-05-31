@@ -1,3 +1,5 @@
+<h1><%=h @event_type.short_description %></h1>
+
 <p>
   <b>Code:</b>
   <%=h @event_type.code %>
@@ -13,6 +15,36 @@
   <%=h @event_type.long_description %>
 </p>
 
+<p>
+  <b>Antal logginlägg av denna typ:</b>
+  <%= @event_type.log_entries.count.to_i %>
+</p>
+
+<p>
+  <b>Antal remisser med inlägg av denna typ:</b>
+  <%= @event_type.referrals.uniq.count.to_i %>
+</p>
+
+<% unless @event_type.position.blank? %>
+<p>
+  <b>Position i flödet:</b> <%= @event_type.position %>
+</p>
+
+<p>
+  <% previous_event_types = EventType.find(:all, :conditions => { :position => @event_type.position - 1 }) %>
+  <b>Föregående steg:</b>
+  <% if previous_event_types.empty? %>
+    Inget föregående steg.
+  <% else %>
+    <ul>
+    <% previous_event_types.each do |previous_event_type| %>
+      <li><%= previous_event_type.code %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</p>
+
+<% end %>
 
 <%= link_to 'Edit', edit_event_type_path(@event_type) %> |
 <%= link_to 'Back', event_types_path %>

@@ -1,22 +1,58 @@
 <h1>Lista händelseförloppet</h1>
 
-<table>
+<p>Utvalda händelser:</p>
+
+<table id="sorted_event_types">
+  <tr>
+    <% first_position = @sorted_event_types.first.position %>
+    <% last_position = @sorted_event_types.last.position %>
+    <% first_position.upto(last_position) { |i| %>
+      <td>
+      <% a = EventType.all(:conditions => { :position => i }) %>
+      <% a.each do |b| %>
+        <div>
+          <% if b.short_description.blank? %>
+            <%= i %>. <%= link_to b.code, b %>
+          <% else %>
+            <%= i %>. <%= link_to b.short_description, b %>
+          <% end %>
+        </div>
+      <% end %>
+      </td>
+    <% } %>
+  </tr>
+</table>
+
+<h2>Alla händelser:</h2>
+
+<table class="index_table">
   <tr>
     <th>Kod:</th>
     <th>Kort förklaring:</th>
     <th>Logghändelser inom den händelse:</th>
+    <th>#:</th>
   </tr>
-
+<!--<ul id="event_types_list" style="cursor: move;">-->
 <% @event_types.each do |event_type| %>
+<!--
+<li id="event_type_<%= event_type.id %>">
+  <%= event_type.code %>
+</li>
+-->
   <tr>
     <td><%=h event_type.code %></td>
     <td><%=h event_type.short_description %></td>
     <td><%= event_type.log_entries.count.to_i %></td>
+    <td><%= event_type.position %></td>
     <td><%= link_to 'Visa', event_type %></td>
     <td><%= link_to 'Ändra', edit_event_type_path(event_type) %></td>
     <td><%= link_to 'Ta bort', event_type, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+<!--</ul>-->
+
+<%#= sortable_element "event_types_list", :url => { :action => "sort" }, :complete => visual_effect(:highlight, "event_types_list") %>
+
 </table>
 
 <br />

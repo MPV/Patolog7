@@ -22,7 +22,7 @@ a:hover { color: #fff; background-color:#000; }
 
 #wrapper{
     margin: 0 auto;
-    width: 900px;
+    max-width: 900px;
 }
 
 #site_title{
@@ -40,6 +40,23 @@ a:hover { color: #fff; background-color:#000; }
 #page{
     background: #fff;
     padding: 1em 2em;
+}
+
+table.index_table{
+    border-spacing: 0;
+}
+table.index_table th{
+    text-align: left;
+}
+
+#sorted_event_types{
+    border-spacing: 0.5em;
+}
+
+#sorted_event_types td{
+    background: lightblue;
+    border: 1px solid #369;
+    padding: 0.5em 1em;
 }
 
 .fieldWithErrors {
