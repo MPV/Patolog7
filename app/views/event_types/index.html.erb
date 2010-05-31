@@ -2,6 +2,8 @@
 
 <p>Utvalda händelser:</p>
 
+<% unless @sorted_event_types.empty? %>
+
 <table id="sorted_event_types">
   <tr>
     <% first_position = @sorted_event_types.first.position %>
@@ -22,6 +24,8 @@
     <% } %>
   </tr>
 </table>
+
+<% end %>
 
 <h2>Alla händelser:</h2>
 
