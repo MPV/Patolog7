@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100527112607) do
+ActiveRecord::Schema.define(:version => 20100531114044) do
 
   create_table "event_types", :force => true do |t|
     t.string   "code"
@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20100527112607) do
     t.text     "long_description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "imports", :force => true do |t|
