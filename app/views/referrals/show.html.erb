@@ -18,12 +18,14 @@
   Ankomst: 
   <%= l @arrival.logged_at, :format => :short %>
   <br />
+  <% unless @lab_out.nil? %>
   Lab ut: 
   <%= l @lab_out.logged_at, :format => :short %>
   <br />
   Tid däremellan:
   <%= distance_of_time_in_words @lab_out.logged_at, @arrival.logged_at %>
   (<%= (@lab_out.logged_at.to_date - @arrival.logged_at.to_date).to_i %> dagar).
+  <% end %>
 </p>
 
 <h2>Loggat på denna remiss:</h2>
