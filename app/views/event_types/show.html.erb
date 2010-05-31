@@ -17,12 +17,12 @@
 
 <p>
   <b>Antal logginlägg av denna typ:</b>
-  <%= @event_type.log_entries.count.to_i %>
+  <%= @event_type.log_entries.length.to_i %>
 </p>
 
 <p>
   <b>Antal remisser med inlägg av denna typ:</b>
-  <%= @event_type.referrals.uniq.count.to_i %>
+  <%= @event_type.referrals.uniq.length.to_i %>
 </p>
 
 <% unless @event_type.position.blank? %>
