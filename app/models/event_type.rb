@@ -24,7 +24,7 @@ class EventType < ActiveRecord::Base
           :conditions => ["log_entries.event_type_id = ?", id]
         ) # TODO: Support multiple current steps.
         referrals_completed_previous_but_not_current_step = referrals_completed_previous_step - referrals_completed_current_step
-        if referrals_completed_previous_but_not_current_step.length.nil?
+        if referrals_completed_previous_but_not_current_step.nil?
           return 0
         else
           return referrals_completed_previous_but_not_current_step.length
