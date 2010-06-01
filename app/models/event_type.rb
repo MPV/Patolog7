@@ -31,7 +31,7 @@ class EventType < ActiveRecord::Base
   
   def referrals_unfinished
     if position.blank?
-      return 0
+      return 0.to_i
     else
       previous_event_types = EventType.find(:all, :conditions => { :position => position-1 })
       unless previous_event_types.empty?
@@ -51,7 +51,7 @@ class EventType < ActiveRecord::Base
         ) # TODO: Support multiple current steps.
         referrals_completed_previous_but_not_current_step = referrals_completed_previous_step - referrals_completed_current_step
         if referrals_completed_previous_but_not_current_step.nil?
-          return 0
+          return 0.to_i
         else
           return referrals_completed_previous_but_not_current_step.length
         end
