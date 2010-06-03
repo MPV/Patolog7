@@ -29,6 +29,17 @@ class EventType < ActiveRecord::Base
     end
   end
   
+  def log_entries_today
+    le = LogEntry.find(
+      :all, 
+      :conditions => 
+        ["event_type_id = #{id} AND logged_at BETWEEN ? AND ?", "2010-01-07 00:00" , "2010-01-07 23:59"]
+    )
+    le.length
+    # dynamic:
+    #DateTime.now.strftime("%Y-%m-%d 00:00")
+  end
+  
   def referrals_unfinished
     if position.blank?
       return 0.to_i

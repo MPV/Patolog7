@@ -18,9 +18,9 @@ class EventTypesController < ApplicationController
     @event_type = EventType.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @event_type.to_xml(:methods => :referrals_unfinished) }
-      format.json { render :json => @event_type.to_json(:methods => :referrals_unfinished) }
+      format.html
+      format.xml  { render :xml => @event_type.to_xml(:methods => [:referrals_unfinished, :log_entries_today]) }
+      format.json { render :json => @event_type.to_json(:methods => [:referrals_unfinished, :log_entries_today]) }
     end
   end
 
@@ -93,4 +93,19 @@ class EventTypesController < ApplicationController
       event_type.save
     end
   end
+  
+  def search
+    unless params[:position].nil?
+      @event_types = EventType.find_all_by_position(params[:position])
+    else
+      @event_types = EventType.all
+    end
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @event_types.to_xml(:methods => [:referrals_unfinished, :log_entries_today]) }
+      format.json { render :json => @event_types.to_json(:methods => [:referrals_unfinished, :log_entries_today]) }
+    end
+  end
+  
 end

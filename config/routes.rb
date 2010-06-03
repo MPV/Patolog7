@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.connect "/event_types/search", :controller => 'event_types', :action => 'search'
+  map.connect "/event_types/search.:format", :controller => 'event_types', :action => 'search'
+  
   map.resources :event_types
 
   map.resources :signatures
