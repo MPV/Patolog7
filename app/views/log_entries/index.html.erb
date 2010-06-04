@@ -1,28 +1,30 @@
-<h1>Listing log_entries</h1>
+<h1><%= @log_entries.length.to_i %> loggrader:</h1>
 
-<table>
+<table class="index_table">
   <tr>
-    <th>Event type</th>
-    <th>Additional info</th>
-    <th>Logged at</th>
-    <th>Signed by</th>
-    <th>Referral</th>
+    <th>Händelse:</th>
+    <th>Info:</th>
+    <th>Loggades:</th>
+    <th>Signerat av:</th>
+    <th>Remiss:</th>
   </tr>
 
 <% @log_entries.each do |log_entry| %>
   <tr>
     <td><%= link_to h(log_entry.event_type.code), log_entry.event_type %></td>
     <td><%=h log_entry.additional_info %></td>
-    <td><%=h log_entry.logged_at %></td>
-    <td><%=h log_entry.signed_by %></td>
+    <td><%= l log_entry.logged_at, :format => :short %></td>
+    <td><%= link_to h(log_entry.signature.person.signature_code), log_entry.signature.person %></td>
     <td><%= link_to "#{log_entry.referral.id}", log_entry.referral %></td>
+<!--
     <td><%= link_to 'Show', log_entry %></td>
     <td><%= link_to 'Edit', edit_log_entry_path(log_entry) %></td>
     <td><%= link_to 'Destroy', log_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+-->
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New log_entry', new_log_entry_path %>
+<%#= link_to 'New log_entry', new_log_entry_path %>

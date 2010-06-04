@@ -1,4 +1,4 @@
-<h1>Alla remisser</h1>
+<h1><%= @referrals.length.to_i %> remisser:</h1>
 
 <table>
   <tr>
@@ -9,16 +9,17 @@
 
 <% @referrals.each do |referral| %>
   <tr>
-    <td><%= referral.id %></td>
+    <td><%= link_to referral.id, referral %></td>
     <td><%= referral.referral_year %></td>
     <td><%= referral.referral_type %></td>
-    <td><%= link_to 'Show', referral %></td>
+<!--    <td><%= link_to 'Show', referral %></td>
     <td><%= link_to 'Edit', edit_referral_path(referral) %></td>
     <td><%= link_to 'Destroy', referral, :confirm => 'Are you sure?', :method => :delete %></td>
+-->
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New referral', new_referral_path %>
+<%#= link_to 'New referral', new_referral_path %>

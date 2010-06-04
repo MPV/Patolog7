@@ -1,4 +1,10 @@
-<h1><%=h @event_type.short_description %></h1>
+<h1>
+  <% if @event_type.short_description.blank? %>
+  <%=h @event_type.code %>
+  <% else %>
+  <%=h @event_type.short_description %>
+  <% end %>
+</h1>
 
 <p>
   <b>Databaskod:</b>
@@ -16,19 +22,30 @@
 </p>
 
 <p>
-  <b>Antal logginlägg av denna typ:</b>
-  <%= @event_type.log_entries.length.to_i %>
-</p>
-
-<p>
   <b>Antal remisser med inlägg av denna typ:</b>
   <%= @event_type.referrals.uniq.length.to_i %>
 </p>
 
 <p>
-  <b>Remisser redo för detta steg (men ej klara ännu):</b>
+  <b>Antal remisser redo för detta steg (men ej klara ännu):</b>
   <%= @event_type.referrals_unfinished.to_i %>
 </p>
+
+<p>
+  <b>Slutfört på detta steg idag:</b>
+  <%= @event_type.log_entries_today.to_i %>
+</p>
+
+<h2><%= @event_type.log_entries.length.to_i %> logginlägg av denna typ:</h2>
+<% if @event_type.log_entries.empty? %>
+  <p>Inget loggat av denna typ.</p>
+<% else %>
+  <ul>
+    <% @event_type.log_entries.each do |log_entry| %>
+    <li><%= link_to "Remiss #{log_entry.referral.id}", log_entry %>, <%= l log_entry.logged_at, :format => :short %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= link_to 'Ändra', edit_event_type_path(@event_type) %> |
 <%= link_to 'Tillbaka', event_types_path %>

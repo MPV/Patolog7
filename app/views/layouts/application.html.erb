@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Grupp 7-grej</title>
+  <title>PATO-logg</title>
   <%= stylesheet_link_tag 'style' %>
   <%= javascript_include_tag :defaults %>
 </head>
@@ -12,14 +12,16 @@
 
 <div id="wrapper">
 
-<h2 id="site_title"><%= link_to 'Grupp 7 demo', root_path %></h2>
+<h2 id="site_title"><%= link_to 'PATO-logg', root_path %></h2>
 
 <div id="menu">
 
-<%= link_to 'Remisser', referrals_path %>
-<%= link_to 'Händelsetyper', event_types_path %>
-<%= link_to 'Loggrader', log_entries_path %>
-<%= link_to 'Ny import', new_import_path %>
+<ul>
+  <li><%= link_to 'Remisser', referrals_path %></li>
+  <li><%= link_to 'Händelsetyper', event_types_path %></li>
+  <li><%= link_to 'Loggrader', log_entries_path %></li>
+  <li><%= link_to 'Ny import', new_import_path %></li>
+</ul>
 
 </div>
 
